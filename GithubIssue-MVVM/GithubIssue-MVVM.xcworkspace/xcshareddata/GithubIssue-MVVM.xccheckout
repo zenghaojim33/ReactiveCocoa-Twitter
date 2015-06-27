@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A9DDB0E2-6E98-49C5-9C03-F31C46DC3BE8</string>
+	<key>IDESourceControlProjectName</key>
+	<string>GithubIssue-MVVM</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C52E17AEA50AA2467667FBC4E0FD8894449BFF3D</key>
+		<string>gitlab.cngump.com:ganguo_ios/GithubIssue-MVVM.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>GithubIssue-MVVM/GithubIssue-MVVM.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C52E17AEA50AA2467667FBC4E0FD8894449BFF3D</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>gitlab.cngump.com:ganguo_ios/GithubIssue-MVVM.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C52E17AEA50AA2467667FBC4E0FD8894449BFF3D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C52E17AEA50AA2467667FBC4E0FD8894449BFF3D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>GithubIssue-MVVM</string>
+		</dict>
+	</array>
+</dict>
+</plist>

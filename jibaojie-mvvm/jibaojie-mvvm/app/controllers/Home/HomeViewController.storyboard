@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E36b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="TKq-7Q-z4C">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="ZTU-Mp-ODZ">
+            <objects>
+                <viewController id="TKq-7Q-z4C" customClass="HomeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="k7A-Rj-bcp"/>
+                        <viewControllerLayoutGuide type="bottom" id="tRj-lx-Lhx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cOb-So-n25">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6hf-q1-EWc">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="TKq-7Q-z4C" id="1uQ-hQ-4Ue"/>
+                                    <outlet property="delegate" destination="TKq-7Q-z4C" id="T2q-IO-Wkr"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6hf-q1-EWc" firstAttribute="leading" secondItem="cOb-So-n25" secondAttribute="leading" id="CbM-TO-NG8"/>
+                            <constraint firstAttribute="trailing" secondItem="6hf-q1-EWc" secondAttribute="trailing" id="R3x-Ho-C9l"/>
+                            <constraint firstAttribute="bottom" secondItem="6hf-q1-EWc" secondAttribute="bottom" id="Sxj-9d-a2n"/>
+                            <constraint firstItem="6hf-q1-EWc" firstAttribute="top" secondItem="cOb-So-n25" secondAttribute="top" id="oSy-Xn-Qj4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="6hf-q1-EWc" id="RnB-zt-UEK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gUT-3g-xaL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="296" y="71"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

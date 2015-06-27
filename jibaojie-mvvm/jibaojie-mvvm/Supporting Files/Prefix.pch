@@ -1,0 +1,19 @@
+//
+// Prefix header for all source files in the 'jibaojie-mvvm' project
+//
+
+#ifdef __OBJC__
+    @import Foundation;
+    @import QuartzCore;
+    @import UIKit;
+    #import <GGCommonKit.h>
+    #import "APIClient.h"
+    #import "APIAddress.h"
+    #import "AppConfig.h"
+    #import <UIImageView+WebCache.h>
+    #import <MJRefresh.h>
+    #import <ShareSDK/ShareSDK.h>
+    #import <PureLayout.h>
+    #import "JBJAccount.h"
+    #import "UIViewController+NavItem.h"
+#endif

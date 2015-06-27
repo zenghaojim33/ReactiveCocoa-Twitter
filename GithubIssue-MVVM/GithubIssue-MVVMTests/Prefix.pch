@@ -1,0 +1,21 @@
+
+
+#ifdef __OBJC__
+@import Foundation;
+@import QuartzCore;
+@import UIKit;
+#import <Specta.h>
+#import <Expecta.h>
+#import <OCMock.h>
+#import <GGCommonKit.h>
+#import "AppConfig.h"
+#import "APIAddress.h"
+#import "APIClient.h"
+
+#define MOCK_ISSUE_USERNAME @"Ron"
+#define MOCK_ISSUE_AVATAR @"http://tp3.sinaimg.cn/1629708202/180/5659082893/1"
+#define MOCK_ISSUE_URL @"https://github.com/vmg/redcarpet/issues/493"
+#define MOCK_ISSUE_BODY @"What features does the default parser support? Is there a documentation?"
+
+
+#endif

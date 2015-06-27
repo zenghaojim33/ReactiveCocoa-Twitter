@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E36b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductListCell" rowHeight="99" id="KGk-i7-Jjw" customClass="ProductListCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yiv-xK-hSb" userLabel="productImageView">
+                        <rect key="frame" x="8" y="8" width="80" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="kih-OD-IKL"/>
+                            <constraint firstAttribute="height" constant="80" id="wGm-sF-LbF"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRL-vd-3zQ" userLabel="productNameLabel">
+                        <rect key="frame" x="96" y="8" width="216" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="36" id="cwq-ul-p9M"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RB6-AG-LB3" userLabel="productPriceLabel">
+                        <rect key="frame" x="96" y="67" width="5" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4JK-tg-cj6" userLabel="productFavButton">
+                        <rect key="frame" x="289" y="63" width="30" height="34"/>
+                        <state key="normal" title=" ">
+                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="4JK-tg-cj6" secondAttribute="trailing" constant="1" id="7so-h3-1B5"/>
+                    <constraint firstItem="RB6-AG-LB3" firstAttribute="bottom" secondItem="Yiv-xK-hSb" secondAttribute="bottom" id="Gpc-Me-8aG"/>
+                    <constraint firstItem="Yiv-xK-hSb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Kqn-fE-LIM"/>
+                    <constraint firstItem="Yiv-xK-hSb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="M2X-wz-YUR"/>
+                    <constraint firstItem="FRL-vd-3zQ" firstAttribute="leading" secondItem="Yiv-xK-hSb" secondAttribute="trailing" constant="8" id="ULf-gg-2Ia"/>
+                    <constraint firstItem="RB6-AG-LB3" firstAttribute="leading" secondItem="Yiv-xK-hSb" secondAttribute="trailing" constant="8" id="a6S-Te-1dw"/>
+                    <constraint firstAttribute="trailing" secondItem="FRL-vd-3zQ" secondAttribute="trailing" constant="8" id="gpT-8W-C21"/>
+                    <constraint firstItem="FRL-vd-3zQ" firstAttribute="top" secondItem="Yiv-xK-hSb" secondAttribute="top" id="vpa-cn-3w9"/>
+                    <constraint firstAttribute="bottom" secondItem="4JK-tg-cj6" secondAttribute="bottom" constant="1.5" id="wKk-Ge-VCF"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="productFavButton" destination="4JK-tg-cj6" id="xS3-aO-BqV"/>
+                <outlet property="productImageView" destination="Yiv-xK-hSb" id="pFO-MT-Guy"/>
+                <outlet property="productNameLabel" destination="FRL-vd-3zQ" id="AzN-rm-4Me"/>
+                <outlet property="productPriceLabel" destination="RB6-AG-LB3" id="ipj-Ux-MLw"/>
+            </connections>
+            <point key="canvasLocation" x="364" y="485.5"/>
+        </tableViewCell>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
