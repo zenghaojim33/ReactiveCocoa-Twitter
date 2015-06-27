@@ -440,6 +440,7 @@
 				E48E4DE51B29DF3B00916198 /* Frameworks */,
 				E48E4DE61B29DF3B00916198 /* Resources */,
 				7E8B2676FB09A23527D56AB9 /* Copy Pods Resources */,
+				E490319D1B3E89120017C2EA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -588,6 +589,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		E490319D1B3E89120017C2EA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "maxLine=200\n\nprojectName=${PROJECT_NAME}\n\nprojectPath=${PWD}\n\nSEARCH_DIR=./${projectName}/app\n\nfind $SEARCH_DIR -name '*Controller.m' -print0 | while IFS= read -r -d $'\\0' filename; do\na=$(wc -l $filename)\nlines=$(echo $a|cut -d' ' -f1)\nif [ $lines -ge $maxLine ]\nthen\necho \"error: you can't more than\" $maxLine \"lines in one controller, File\" $filename \"have\" $lines \"lines\"\nbreak\nfi\ndone";
 		};
 /* End PBXShellScriptBuildPhase section */
 
