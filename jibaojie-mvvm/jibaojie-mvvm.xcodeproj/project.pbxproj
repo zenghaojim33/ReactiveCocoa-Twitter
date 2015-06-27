@@ -744,7 +744,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "SEARCH_DIR=${SRCROOT}/${PROJECT_NAME}\n\nallFiles=$(find $SEARCH_DIR -name '*.m')\n\nmaxLine=100\n\nfor filename in \"${allFiles[@]}\"\ndo\n\nlineCount=$(wc -l < ${filename})\n\n    echo \"warn:\" + \"File\" + $filename + \"have\" + $lineCount + \"lines\"\n\nif [$lineCount > $maxLine]\nthen\n    echo \"error: you can't more than\" + $maxLine + \"lines in one controller,\" + \"File\" + $filename + \"have\" + $lineCount + \"lines\"\n    break\nfi\n\ndone";
+			shellScript = "";
 		};
 /* End PBXShellScriptBuildPhase section */
 
