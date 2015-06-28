@@ -13,3 +13,14 @@ pod 'SDWebImage'
 pod 'uicontrol-blocks'
 pod 'INTULocationManager'
 pod 'MJRefresh', '~> 1.4.7'
+
+
+target :specs do
+    
+    link_with 'jibaojie-mvvmTests'
+    
+    pod 'Specta'
+    pod 'Expecta'
+    pod 'OCMock'
+    
+end

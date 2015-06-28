@@ -1,0 +1,23 @@
+
+
+#ifdef __OBJC__
+@import Foundation;
+@import QuartzCore;
+@import UIKit;
+#import <Specta.h>
+#import <Expecta.h>
+#import <OCMock.h>
+#import <GGCommonKit.h>
+#import "AppConfig.h"
+#import "APIAddress.h"
+#import "APIClient.h"
+#import "JBJAccount.h"
+
+#define MOCK_PID @27
+#define MOCK_CATEGORYID @11
+#define MOCK_NAME  @"Apple/苹果 MacBook Pro MD314ZP/A MD313 MD101 MD102 MD212"
+#define MOCK_URL @"http://t.cn/z8wz5w7"
+#define MOCK_COLLECT @6
+#define MOCK_ORIGINL_IMAGE  @"http://jibaojie.cngump.com/upload/201405/original/537575d469868_863x525.png"
+
+#endif

@@ -6,4 +6,4 @@
 //
 //
 
-#define RequestPerPageCount @"20"
+#define RequestPerPageCount @"5"
