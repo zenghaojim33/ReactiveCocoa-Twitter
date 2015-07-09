@@ -1,15 +1,15 @@
 //
-//  UserModel.m
+//  User.m
 //  twitter
 //
 //  Created by Anson on 15/7/9.
 //
 //
 
-#import "UserModel.h"
+#import "User.h"
 
+@implementation User
 
-@implementation UserModel
 
 
 

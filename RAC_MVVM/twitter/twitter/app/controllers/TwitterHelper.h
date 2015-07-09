@@ -14,7 +14,7 @@
 @interface twitterHelper : AF2OAuth1Client
 
 
-+(TwitterLoginHelper *)shareHelper;
++(twitterHelper *)shareHelper;
 + (void (^)(AFHTTPRequestOperation *operation, id response))emptySuccessBlock;
 + (void (^)(AFHTTPRequestOperation *operation, NSError *error))networkFailureBlock;
 

@@ -10,6 +10,7 @@
 #import <FLEXManager.h>
 #import <Reachability.h>
 #import "AF2OAuth1Client.h"
+#import "TwitterLoginPageViewController.h"
 @interface AppDelegate()
 @property(nonatomic,strong) AF2OAuth1Client * twitterClient;
 
@@ -27,21 +28,26 @@
     [self startNotifierNetWork];
     [self showBuildsNumber];
     
-    self.twitterClient = [[AF2OAuth1Client alloc] initWithBaseURL:[NSURL URLWithString:@"https://api.twitter.com/1.1/"] key:@"4oFCF0AjP4PQDUaCh5RQ" secret:@"NxAihESVsdUXSUxtHrml2VBHA0xKofYKmmGS01KaSs"];
+//    self.twitterClient = [[AF2OAuth1Client alloc] initWithBaseURL:[NSURL URLWithString:@"https://api.twitter.com/1.1/"] key:@"4oFCF0AjP4PQDUaCh5RQ" secret:@"NxAihESVsdUXSUxtHrml2VBHA0xKofYKmmGS01KaSs"];
+//    
+//    [self.twitterClient authorizeUsingOAuthWithRequestTokenPath:@"/oauth/request_token" userAuthorizationPath:@"/oauth/authorize" callbackURL:[NSURL URLWithString:@"af-twitter://success"] accessTokenPath:@"/oauth/access_token" accessMethod:@"POST" scope:nil success:^(AF2OAuth1Token *accessToken, id responseObject) {
+//        NSMutableURLRequest *request = [self.twitterClient requestWithMethod:@"GET" path:@"statuses/user_timeline.json" parameters:nil];
+//        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperationManager manager] HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//            NSLog(@"Success: %@", responseObject);
+//        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//            NSLog(@"Error: %@", [error localizedDescription]);
+//        }];
+//        [manager.operationQueue addOperation:operation];
+//    } failure:^(NSError *error) {
+//        NSLog(@"Error: %@", error);
+//    }];
     
-    [self.twitterClient authorizeUsingOAuthWithRequestTokenPath:@"/oauth/request_token" userAuthorizationPath:@"/oauth/authorize" callbackURL:[NSURL URLWithString:@"af-twitter://success"] accessTokenPath:@"/oauth/access_token" accessMethod:@"POST" scope:nil success:^(AF2OAuth1Token *accessToken, id responseObject) {
-        NSMutableURLRequest *request = [self.twitterClient requestWithMethod:@"GET" path:@"statuses/user_timeline.json" parameters:nil];
-        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperationManager manager] HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSLog(@"Success: %@", responseObject);
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"Error: %@", [error localizedDescription]);
-        }];
-        [manager.operationQueue addOperation:operation];
-    } failure:^(NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
-
+    
+    TwitterLoginPageViewController * vc = [[UIStoryboard storyboardWithName:@"TwitterLoginPage" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"login"];
+    
+    self.window.rootViewController = vc;
+    
     
     return YES;
 }

@@ -7,7 +7,7 @@
         <!--Twitter Login Page View Controller-->
         <scene sceneID="dag-EV-UGQ">
             <objects>
-                <viewController id="q0A-Uj-o5i" customClass="TwitterLoginPageViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" useStoryboardIdentifierAsRestorationIdentifier="YES" id="q0A-Uj-o5i" customClass="TwitterLoginPageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zKB-wa-CiW"/>
                         <viewControllerLayoutGuide type="bottom" id="lPj-15-aiG"/>
@@ -46,7 +46,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OaZ-J6-CR0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="868" y="559"/>
+            <point key="canvasLocation" x="695" y="588"/>
         </scene>
     </scenes>
     <resources>

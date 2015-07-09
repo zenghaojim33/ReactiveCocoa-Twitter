@@ -26,7 +26,7 @@
 		156EB99A1B4E4846001123BF /* TwitterLoginPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 156EB9981B4E4846001123BF /* TwitterLoginPageViewController.m */; };
 		1582BAA81B4E53B900F9D468 /* TwitterLoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1582BAA71B4E53B900F9D468 /* TwitterLoginViewModel.m */; };
 		1582BAAB1B4E5AB100F9D468 /* TwitterHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1582BAAA1B4E5AB100F9D468 /* TwitterHelper.m */; };
-		1582BAAE1B4E6ADF00F9D468 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1582BAAD1B4E6ADF00F9D468 /* UserModel.m */; };
+		1582BAB61B4E868400F9D468 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1582BAB51B4E868400F9D468 /* User.m */; };
 		B3AB4031D6A12D23FFA07A2C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0FB5BF1E63F17D0CCBD679F /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -71,8 +71,8 @@
 		1582BAA71B4E53B900F9D468 /* TwitterLoginViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwitterLoginViewModel.m; path = twitter/app/controllers/TwitterLoginViewModel.m; sourceTree = SOURCE_ROOT; };
 		1582BAA91B4E5AB100F9D468 /* TwitterHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwitterHelper.h; path = twitter/app/controllers/TwitterHelper.h; sourceTree = SOURCE_ROOT; };
 		1582BAAA1B4E5AB100F9D468 /* TwitterHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwitterHelper.m; path = twitter/app/controllers/TwitterHelper.m; sourceTree = SOURCE_ROOT; };
-		1582BAAC1B4E6ADF00F9D468 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserModel.h; path = twitter/app/controllers/UserModel.h; sourceTree = SOURCE_ROOT; };
-		1582BAAD1B4E6ADF00F9D468 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserModel.m; path = twitter/app/controllers/UserModel.m; sourceTree = SOURCE_ROOT; };
+		1582BAB41B4E868400F9D468 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = twitter/app/controllers/User.h; sourceTree = SOURCE_ROOT; };
+		1582BAB51B4E868400F9D468 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = twitter/app/controllers/User.m; sourceTree = SOURCE_ROOT; };
 		3D73A9F6C2242DA99F5FE4A4 /* Pods.app store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods.app store.xcconfig"; path = "Pods/Target Support Files/Pods/Pods.app store.xcconfig"; sourceTree = "<group>"; };
 		D0FB5BF1E63F17D0CCBD679F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D22710845EEAE824906FA4A0 /* Pods.ad hoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods.ad hoc.xcconfig"; path = "Pods/Target Support Files/Pods/Pods.ad hoc.xcconfig"; sourceTree = "<group>"; };
@@ -176,8 +176,8 @@
 				1582BAA71B4E53B900F9D468 /* TwitterLoginViewModel.m */,
 				1582BAA91B4E5AB100F9D468 /* TwitterHelper.h */,
 				1582BAAA1B4E5AB100F9D468 /* TwitterHelper.m */,
-				1582BAAC1B4E6ADF00F9D468 /* UserModel.h */,
-				1582BAAD1B4E6ADF00F9D468 /* UserModel.m */,
+				1582BAB41B4E868400F9D468 /* User.h */,
+				1582BAB51B4E868400F9D468 /* User.m */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -441,13 +441,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1582BAB61B4E868400F9D468 /* User.m in Sources */,
 				156EB8721B4E0E18001123BF /* TableLoadMorer.m in Sources */,
 				156EB86C1B4E0E18001123BF /* GGUtil.m in Sources */,
 				1582BAAB1B4E5AB100F9D468 /* TwitterHelper.m in Sources */,
 				156EB99A1B4E4846001123BF /* TwitterLoginPageViewController.m in Sources */,
 				156EB87B1B4E0E18001123BF /* AppDelegate.m in Sources */,
 				156EB8671B4E0E18001123BF /* ResponseSerializer.m in Sources */,
-				1582BAAE1B4E6ADF00F9D468 /* UserModel.m in Sources */,
 				156EB8601B4E0E18001123BF /* AppDatabase.m in Sources */,
 				156EB8751B4E0E18001123BF /* UICollectionViewLoadMoreFooter.m in Sources */,
 				156EB8641B4E0E18001123BF /* APIClient.m in Sources */,

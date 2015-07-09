@@ -24,10 +24,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.alamofire.oauthcom.alamofire.oauth</string>
+			<string>com.adamtait.twitter</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>af-twitter</string>
+				<string>adamtait-twitter</string>
 			</array>
 		</dict>
 	</array>

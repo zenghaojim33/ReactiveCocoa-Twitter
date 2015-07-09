@@ -22,24 +22,22 @@
     return nil;
 }
 
+
 -(void)loginTwitter{
     
     
     [[twitterHelper shareHelper]authorizeWithCallbackUrl:[NSURL URLWithString:@"adamtait-twitter://success"] success:^(AF2OAuth1Token *accessToken, id responseObject) {
         
-        
-        
+        [[twitterHelper shareHelper] currentUserWithSuccess:^(AFHTTPRequestOperation *operation, id response) {
+            
+            
+        }];
         
     } failure:^(NSError *error) {
         
-        
-        
-        
+        NSLog(@"%@",error);
     }];
-    
-    
-    
-    
+
 }
 
 @end

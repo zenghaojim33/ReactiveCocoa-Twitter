@@ -135,10 +135,7 @@ static NSString * const kAccessTokenKey = @"kAccessTokenKey";
 
 - (void)createFavorite:(NSString *)tweetId
 {
-//    [self postPath:@"1.1/favorites/create.json" parameters:[NSMutableDictionary dictionaryWithDictionary:@{@"id": tweetId}]
-//           success:[TwitterClient emptySuccessBlock]
-//           failure:[TwitterClient networkFailureBlock]];
-    
+
     
     [self POST:@"1.1/favorites/create.json" parameters:[NSMutableDictionary dictionaryWithDictionary:@{@"id": tweetId}] success:[twitterHelper emptySuccessBlock] failure:[twitterHelper networkFailureBlock]];
 }
