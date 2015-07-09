@@ -1,7 +1,55 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Twitter Login Page View Controller-->
+        <scene sceneID="dag-EV-UGQ">
+            <objects>
+                <viewController id="q0A-Uj-o5i" customClass="TwitterLoginPageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zKB-wa-CiW"/>
+                        <viewControllerLayoutGuide type="bottom" id="lPj-15-aiG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="t9D-HS-eW4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IME-CK-CJb">
+                                <rect key="frame" x="258" y="285" width="84" height="30"/>
+                                <color key="backgroundColor" red="0.0078431372550000003" green="0.53333333329999999" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="TwitterLogin">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bird" translatesAutoresizingMaskIntoConstraints="NO" id="sw1-Hi-Cuu">
+                                <rect key="frame" x="200" y="51" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="IiQ-1j-RcM"/>
+                                    <constraint firstAttribute="width" constant="200" id="fWh-Vo-3Pe"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sw1-Hi-Cuu" firstAttribute="top" secondItem="zKB-wa-CiW" secondAttribute="bottom" constant="31" id="MAh-W4-cGp"/>
+                            <constraint firstAttribute="centerX" secondItem="IME-CK-CJb" secondAttribute="centerX" id="feA-Dg-Y7m"/>
+                            <constraint firstAttribute="centerX" secondItem="sw1-Hi-Cuu" secondAttribute="centerX" id="jSk-vr-5CW"/>
+                            <constraint firstAttribute="centerY" secondItem="IME-CK-CJb" secondAttribute="centerY" id="vvz-nC-nli"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="loginButton" destination="IME-CK-CJb" id="qYR-je-0ug"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OaZ-J6-CR0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="868" y="559"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bird" width="1024" height="1024"/>
+    </resources>
 </document>

@@ -7,9 +7,10 @@
 //
 
 #import "TwitterLoginPageViewController.h"
-
+#import "TwitterLoginViewModel.h"
 @interface TwitterLoginPageViewController ()
-
+@property(nonatomic,strong)TwitterLoginViewModel * viewModel;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @end
 
 @implementation TwitterLoginPageViewController
@@ -17,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

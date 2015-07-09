@@ -7,5 +7,4 @@
     @import QuartzCore;
     @import UIKit;
     #import <GGCommonKit.h>
-#import <ReactiveCocoa/ReactiveCocoa.h>
 #endif

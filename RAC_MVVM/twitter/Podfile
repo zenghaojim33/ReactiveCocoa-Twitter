@@ -12,4 +12,5 @@ pod 'MBProgressHUD'
 pod 'SDWebImage'
 pod 'uicontrol-blocks'
 pod 'INTULocationManager'
+pod 'ReactiveCocoa'
 
