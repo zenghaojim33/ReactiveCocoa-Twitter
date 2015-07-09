@@ -1,0 +1,15 @@
+platform :ios, '7.0'
+inhibit_all_warnings!
+
+pod 'AFNetworking'
+pod 'GGModel', :git => 'git@gitlab.cngump.com:ganguo_ios/ggmodel_ios.git'
+pod 'GGCommonKit', :git => 'git@gitlab.cngump.com:ganguo_ios/ggcommonkit.git'
+pod 'PureLayout'
+pod 'FLEX'
+pod 'NYXImagesKit'
+pod 'Reachability'
+pod 'MBProgressHUD'
+pod 'SDWebImage'
+pod 'uicontrol-blocks'
+pod 'INTULocationManager'
+
