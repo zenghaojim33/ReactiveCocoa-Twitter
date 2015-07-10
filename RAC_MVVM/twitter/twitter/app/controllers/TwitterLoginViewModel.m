@@ -15,7 +15,7 @@
     
     if (self = [super init]){
         
-        self.helper = [twitterHelper shareHelper];
+        self.client = [TwitterClient instance];
         
         return self;
     }
@@ -26,12 +26,16 @@
 -(void)loginTwitter{
     
     
-    [[twitterHelper shareHelper]authorizeWithCallbackUrl:[NSURL URLWithString:@"adamtait-twitter://success"] success:^(AF2OAuth1Token *accessToken, id responseObject) {
+    [[TwitterClient instance]authorizeWithCallbackUrl:[NSURL URLWithString:@"adamtait-twitter://success"] success:^(AFOAuth1Token *accessToken, id responseObject) {
         
-        [[twitterHelper shareHelper] currentUserWithSuccess:^(AFHTTPRequestOperation *operation, id response) {
-            
-            
-        }];
+        [[TwitterClient instance] homeTimelineWithCount:10 sinceId:nil maxId:nil
+                                                success:^(AFHTTPRequestOperation *operation, id response) {
+                                                    NSLog(@"%@",response);
+                                                    
+                                                }  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                    
+                                              
+                                                }];
         
     } failure:^(NSError *error) {
         

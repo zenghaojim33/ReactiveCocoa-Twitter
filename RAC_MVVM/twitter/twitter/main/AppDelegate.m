@@ -9,10 +9,9 @@
 #import "AppDelegate.h"
 #import <FLEXManager.h>
 #import <Reachability.h>
-#import "AF2OAuth1Client.h"
 #import "TwitterLoginPageViewController.h"
+#import "TwitterClient.h"
 @interface AppDelegate()
-@property(nonatomic,strong) AF2OAuth1Client * twitterClient;
 
 @end
 

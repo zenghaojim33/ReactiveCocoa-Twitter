@@ -1,7 +1,7 @@
 platform :ios, '7.0'
 inhibit_all_warnings!
 
-pod 'AFNetworking'
+pod 'AFNetworking', '~> 1.3'
 pod 'GGModel', :git => 'git@gitlab.cngump.com:ganguo_ios/ggmodel_ios.git'
 pod 'GGCommonKit', :git => 'git@gitlab.cngump.com:ganguo_ios/ggcommonkit.git'
 pod 'PureLayout'
@@ -13,4 +13,6 @@ pod 'SDWebImage'
 pod 'uicontrol-blocks'
 pod 'INTULocationManager'
 pod 'ReactiveCocoa'
+pod 'MJRefresh'
+pod 'AFOAuth1Client'
 

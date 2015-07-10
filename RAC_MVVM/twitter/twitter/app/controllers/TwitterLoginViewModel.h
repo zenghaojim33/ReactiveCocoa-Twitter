@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TwitterHelper.h"
+#import "TwitterClient.h"
 
 @interface TwitterLoginViewModel : NSObject
 
-@property(nonatomic,strong)twitterHelper * helper;
+@property(nonatomic,strong)TwitterClient * client;
 @property(nonatomic,strong)RACCommand * loginCommand;
 
 
