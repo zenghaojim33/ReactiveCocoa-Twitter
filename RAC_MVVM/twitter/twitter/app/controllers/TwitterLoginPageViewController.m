@@ -8,6 +8,7 @@
 
 #import "TwitterLoginPageViewController.h"
 #import "TwitterLoginViewModel.h"
+#import "TimelineViewController.h"
 @interface TwitterLoginPageViewController ()
 @property(nonatomic,strong)TwitterLoginViewModel * viewModel;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
@@ -32,11 +33,24 @@
     // Do any additional setup after loading the view.
     @weakify(self)
     [[self.loginButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-       @strongify(self)
-        [self.viewModel loginTwitter];
+        @strongify(self)
+        [[self.viewModel loginSignal] subscribeNext:^(NSNumber * isLogin) {
+            if ([isLogin isEqualToNumber:@(YES)]){
+                DLog(@"Login Success");
+                UITabBarController * tab = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeTab"];
+                [self presentViewController:tab animated:YES completion:nil];
+                
+            }
+        }];
         
         
+    } error:^(NSError *error) {
+        
+        DLog(@"%@",error);
+    
     }];
+    
+    
     
     
     

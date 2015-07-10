@@ -8,4 +8,5 @@
     @import UIKit;
     #import <GGCommonKit.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
+#import <MJRefresh/MJRefresh.h>
 #endif

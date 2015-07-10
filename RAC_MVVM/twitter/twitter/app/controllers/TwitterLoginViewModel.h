@@ -12,9 +12,8 @@
 @interface TwitterLoginViewModel : NSObject
 
 @property(nonatomic,strong)TwitterClient * client;
-@property(nonatomic,strong)RACCommand * loginCommand;
 
 
--(void)loginTwitter;
+-(RACSignal *)loginSignal;
 
 @end

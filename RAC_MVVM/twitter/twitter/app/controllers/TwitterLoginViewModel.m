@@ -7,7 +7,7 @@
 //
 
 #import "TwitterLoginViewModel.h"
-
+#import "User.h"
 
 @implementation TwitterLoginViewModel
 
@@ -23,25 +23,27 @@
 }
 
 
--(void)loginTwitter{
-    
-    
-    [[TwitterClient instance]authorizeWithCallbackUrl:[NSURL URLWithString:@"adamtait-twitter://success"] success:^(AFOAuth1Token *accessToken, id responseObject) {
-        
-        [[TwitterClient instance] homeTimelineWithCount:10 sinceId:nil maxId:nil
-                                                success:^(AFHTTPRequestOperation *operation, id response) {
-                                                    NSLog(@"%@",response);
-                                                    
-                                                }  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                    
-                                              
-                                                }];
-        
-    } failure:^(NSError *error) {
-        
-        NSLog(@"%@",error);
-    }];
 
+
+-(RACSignal *)loginSignal{
+    
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        [[TwitterClient instance]authorizeWithCallbackUrl:[NSURL URLWithString:@"adamtait-twitter://success"] success:^(AFOAuth1Token *accessToken, id responseObject) {
+            
+            [[TwitterClient instance] currentUserWithSuccess:^(AFHTTPRequestOperation *operation, id response) {
+                [User setCurrentUser:[[User alloc] initWithDictionary:response]];
+                [subscriber sendNext:@(YES)];
+                [subscriber sendCompleted];
+            }];
+            
+        } failure:^(NSError *error) {
+            [subscriber sendError:error];
+        }];
+        
+        return nil;
+    }];
+    
+    
 }
 
 @end

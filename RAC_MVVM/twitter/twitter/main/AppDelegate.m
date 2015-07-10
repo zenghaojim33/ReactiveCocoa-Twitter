@@ -43,7 +43,7 @@
 //    }];
     
     
-    TwitterLoginPageViewController * vc = [[UIStoryboard storyboardWithName:@"TwitterLoginPage" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"login"];
+    TwitterLoginPageViewController * vc = [[UIStoryboard storyboardWithName:@"Twitter" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"login"];
     
     self.window.rootViewController = vc;
     
