@@ -13,7 +13,6 @@
 
 @property(nonatomic,strong)TwitterClient * client;
 
-
 -(RACSignal *)loginSignal;
 
 @end

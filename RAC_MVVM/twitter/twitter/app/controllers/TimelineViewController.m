@@ -8,10 +8,13 @@
 
 #import "TimelineViewController.h"
 #import "TimelineViewModel.h"
+#import "TweetCell.h"
 @interface TimelineViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *TimelineTableView;
 @property(nonatomic,strong)TimelineViewModel * viewModel;
 @end
+
+#define kCellIdentifier @"Cell"
 
 @implementation TimelineViewController
 
@@ -41,22 +44,37 @@
     self.TimelineTableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
        
         [self.viewModel loadTweet];
-        [self.TimelineTableView reloadData];
         
-        
+
         
     }];
     
     [self.TimelineTableView.header beginRefreshing];
 
-    self.TimelineTableView.footer = [MJRefreshAutoFooter footerWithRefreshingBlock:^{
+    self.TimelineTableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
        
         [self.viewModel loadMore];
-        [self.TimelineTableView reloadData];
         
     }];
     
 
+    @weakify(self)
+    
+    [[RACObserve(self.viewModel, tweet) filter:^BOOL(NSMutableArray *array) {
+        @strongify(self)
+        return !!self.viewModel.tweet;
+    }]
+
+     subscribeNext:^(id x) {
+        @strongify(self)
+        [self.TimelineTableView reloadData];
+        [self.TimelineTableView.header endRefreshing];
+        [self.TimelineTableView.footer endRefreshing];
+     }];
+    
+
+    
+    
 }
 
 
@@ -66,7 +84,9 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    return nil;
+    TweetCell * cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
+    [cell configureCellWithTweet:self.viewModel.tweet[indexPath.row]];
+    return cell;
 }
 
 
@@ -77,7 +97,6 @@
     
     
 }
-
 
 
 

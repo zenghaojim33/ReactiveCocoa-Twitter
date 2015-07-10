@@ -7,7 +7,7 @@
 //
 
 #import "TweetCell.h"
-
+#import <SDWebImage/UIImageView+WebCache.h>
 @implementation TweetCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -34,7 +34,11 @@
 
 -(void)configureCellWithTweet:(Tweet *)tweet
 {
+    self.name.text = tweet.username;
+    [self.avatar sd_setImageWithURL:[NSURL URLWithString:tweet.profileImageURL]];
+    self.content.text = tweet.text;
     
 }
+
 
 @end

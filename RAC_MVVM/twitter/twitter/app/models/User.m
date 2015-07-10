@@ -3,7 +3,7 @@
 //  twitter
 //
 //  Created by Anson on 15/7/9.
-//  Copyright (c) 2013 codepath. All rights reserved.
+//
 //
 
 #import "User.h"
