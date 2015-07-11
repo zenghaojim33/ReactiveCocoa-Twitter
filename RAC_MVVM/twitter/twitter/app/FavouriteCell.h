@@ -1,19 +1,17 @@
 //
-//  TweetCell.h
+//  FavouriteCell.h
 //  twitter
 //
-//  Created by Anson on 15/7/10.
+//  Created by Anson on 15/7/11.
 //
 //
 
 #import <UIKit/UIKit.h>
 #import "Tweet.h"
-@interface TweetCell : UITableViewCell
+@interface FavouriteCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *avatar;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *content;
-@property (weak, nonatomic) IBOutlet UIButton *favouriteButton;
-
 
 -(void)configureCellWithTweet:(Tweet *)tweet;
 

@@ -28,10 +28,16 @@
     
     // provide synchonization & remove possibility that many requests are made at the same time
     
-    [[TwitterClient instance] homeTimelineWithCount:50 sinceId:nil maxId:lastLoadedTweet.idStr
+    [[TwitterClient instance] homeTimelineWithCount:10 sinceId:nil maxId:lastLoadedTweet.idStr
                                             success:^(AFHTTPRequestOperation *operation, id response) {
                                                 
-                                                [self.tweet addObjectsFromArray:[Tweet tweetsWithArray:response]];
+                                                if (((NSArray *)response).count == 0){
+                                                    self.noMoreData = @(YES);
+                                                    return ;
+                                                }
+                                                
+                                                NSMutableArray * tweets = [self mutableArrayValueForKey:@"tweet"];
+                                                [tweets addObjectsFromArray:[Tweet tweetsWithArray:response]];
                                                 
                                                 
                                             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -42,5 +48,9 @@
 
     
 }
+
+
+
+
 
 @end

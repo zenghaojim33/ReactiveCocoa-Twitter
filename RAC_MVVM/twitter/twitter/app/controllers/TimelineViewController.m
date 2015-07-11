@@ -72,7 +72,17 @@
         [self.TimelineTableView.footer endRefreshing];
      }];
     
-
+    [RACObserve(self.viewModel, isNoMoreData) subscribeNext:^(NSNumber * isNoMoreData) {
+        @strongify(self)
+        if ([isNoMoreData isEqualToNumber:@(YES)]){
+            [self.TimelineTableView.footer noticeNoMoreData];
+        }
+        
+    }];
+    
+    
+    
+    
     
     
 }

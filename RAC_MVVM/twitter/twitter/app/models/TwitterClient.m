@@ -108,6 +108,28 @@ static NSString * const kAccessTokenKey = @"kAccessTokenKey";
           failure:failure];
 }
 
+
+- (void)favouriteListWithCount:(int)count
+                      sinceId:(NSString *)sinceId
+                        maxId:(NSString *)maxId
+                      success:(void (^)(AFHTTPRequestOperation *operation, id response))success
+                      failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{@"count": @(count)}];
+    if (sinceId) {
+        [params setObject:sinceId forKey:@"since_id"];
+    }
+    if (maxId) {
+        [params setObject:maxId forKey:@"max_id"];
+    }
+    
+    [self getPath:@"1.1/favorites/list.json"
+       parameters:params
+          success:success
+          failure:failure];
+}
+
+
 - (void)createRetweet:(NSString *)tweetId callback:(void (^)(NSDictionary *tweetWithRetweet))callback
 {
     NSString *path = [NSString stringWithFormat:@"1.1/statuses/retweet/%@.json", tweetId];
@@ -147,6 +169,22 @@ static NSString * const kAccessTokenKey = @"kAccessTokenKey";
            success:[TwitterClient emptySuccessBlock]
            failure:[TwitterClient networkFailureBlock]];
 }
+
+
+- (void)FavouriteListWithCount:(int)count
+                      sinceId:(NSString *)sinceId
+                        maxId:(NSString *)maxId
+                      success:(void (^)(AFHTTPRequestOperation *operation, id response))success
+{
+    [self favouriteListWithCount:count
+                        sinceId:sinceId
+                          maxId:maxId
+                        success:success
+                        failure:[TwitterClient networkFailureBlock]];
+}
+
+
+
 
 
 

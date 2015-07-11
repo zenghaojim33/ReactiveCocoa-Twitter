@@ -34,6 +34,12 @@
                       success:(void (^)(AFHTTPRequestOperation *operation, id response))success
                       failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
+- (void)FavouriteListWithCount:(int)count
+                       sinceId:(NSString *)sinceId
+                         maxId:(NSString *)maxId
+                       success:(void (^)(AFHTTPRequestOperation *operation, id response))success;
+
+
 - (void)createRetweet:(NSString *)tweetId callback:(void (^)(NSDictionary *tweetWithRetweet))callback;
 - (void)deleteRetweet:(NSString *)tweetId;
 - (void)createFavorite:(NSString *)tweetId;
