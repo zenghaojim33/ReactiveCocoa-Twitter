@@ -32,11 +32,13 @@
 }
 
 
--(void)configureCellWithTweet:(Tweet *)tweet
-{
-    self.name.text = tweet.username;
-    [self.avatar sd_setImageWithURL:[NSURL URLWithString:tweet.profileImageURL]];
-    self.content.text = tweet.text;
+-(void)bindViewModel:(TweetCellViewModel *)viewModel{
+    
+    self.viewModel = viewModel;
+    self.name.text = self.viewModel.tweet.username;
+    [self.avatar sd_setImageWithURL:[NSURL URLWithString:self.viewModel.tweet.profileImageURL]];
+    self.content.text = self.viewModel.tweet.text;
+    
     
 }
 

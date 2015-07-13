@@ -16,15 +16,13 @@
 
 @implementation TwitterLoginPageViewController
 
--(id)initWithCoder:(NSCoder *)aDecoder{
-    
-    if (self = [super initWithCoder:aDecoder]){
+
+-(TwitterLoginViewModel *)viewModel{
+    if (!_viewModel){
+        _viewModel = [[TwitterLoginViewModel alloc]init];
         
-        self.viewModel = [[TwitterLoginViewModel alloc]init];
-        return self;
     }
-    return nil;
-    
+    return _viewModel;
 }
 
 
@@ -32,6 +30,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     @weakify(self)
+    
+    self.loginButton.rac_command.allowsConcurrentExecution = NO;
+    
     [[self.loginButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self)
         [[self.viewModel loginSignal] subscribeNext:^(NSNumber * isLogin) {

@@ -19,6 +19,8 @@
     return self;
 }
 
+
+
 - (void)awakeFromNib
 {
     // Initialization code
@@ -31,14 +33,25 @@
     // Configure the view for the selected state
 }
 
+-(void)bindViewModel:(TweetCellViewModel *)viewModel{
 
--(void)configureCellWithTweet:(Tweet *)tweet
-{
-    self.name.text = tweet.username;
-    [self.avatar sd_setImageWithURL:[NSURL URLWithString:tweet.profileImageURL]];
-    self.content.text = tweet.text;
+    self.viewModel = viewModel;
+    self.name.text = self.viewModel.tweet.username;
+    [self.avatar sd_setImageWithURL:[NSURL URLWithString:self.viewModel.tweet.profileImageURL]];
+    self.content.text = self.viewModel.tweet.text;
+    
+    self.favouriteButton.rac_command = viewModel.favouriteCommand;
+    [self.favouriteButton.rac_command.executionSignals subscribeNext:^(id x) {
+        NSLog(@"收藏成功");
+    }];
     
 }
+
+
+#pragma mark ------Setter--------
+
+
+
 
 
 @end

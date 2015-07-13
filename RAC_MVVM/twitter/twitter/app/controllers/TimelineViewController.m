@@ -9,6 +9,7 @@
 #import "TimelineViewController.h"
 #import "TimelineViewModel.h"
 #import "TweetCell.h"
+#import "TweetCellViewModel.h"
 @interface TimelineViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *TimelineTableView;
 @property(nonatomic,strong)TimelineViewModel * viewModel;
@@ -79,7 +80,7 @@
         }
         
     }];
-    
+
     
     
     
@@ -95,7 +96,10 @@
 {
     
     TweetCell * cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
-    [cell configureCellWithTweet:self.viewModel.tweet[indexPath.row]];
+    //[cell configureCellWithTweet:self.viewModel.tweet[indexPath.row]];
+    TweetCellViewModel * tweetCellViewModel = [[TweetCellViewModel alloc]initWithTweet:self.viewModel.tweet[indexPath.row]];
+    [cell bindViewModel:tweetCellViewModel];
+    
     return cell;
 }
 

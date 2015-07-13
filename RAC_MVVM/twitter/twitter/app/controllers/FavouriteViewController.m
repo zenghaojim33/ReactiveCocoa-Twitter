@@ -10,6 +10,7 @@
 #import "FavouriteViewModel.h"
 #import <MJRefresh/MJRefresh.h>
 #import "FavouriteCell.h"
+#import "TweetCellViewModel.h"
 @interface FavouriteViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *FavouriteListTableView;
 @property(nonatomic,strong)FavouriteViewModel * viewModel;
@@ -89,7 +90,10 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     FavouriteCell * cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
-    [cell configureCellWithTweet:self.viewModel.tweet[indexPath.row]];
+    TweetCellViewModel * tweetCellViewModel = [[TweetCellViewModel alloc]initWithTweet:self.viewModel.tweet[indexPath.row]];
+
+    [cell bindViewModel:tweetCellViewModel];
+    
     return cell;
     
 }

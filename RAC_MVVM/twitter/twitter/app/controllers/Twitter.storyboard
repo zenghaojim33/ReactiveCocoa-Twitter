@@ -50,7 +50,7 @@
             </objects>
             <point key="canvasLocation" x="665" y="557"/>
         </scene>
-        <!--Item 2-->
+        <!--Favourite View Controller-->
         <scene sceneID="RNU-i3-1T7">
             <objects>
                 <viewController storyboardIdentifier="Favourite" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Fe7-8F-Ant" customClass="FavouriteViewController" sceneMemberID="viewController">
@@ -123,7 +123,7 @@
                             <constraint firstItem="2Qr-by-sUM" firstAttribute="top" secondItem="0cJ-hw-eBU" secondAttribute="bottom" id="ge3-r3-52a"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="Vhr-jW-rBU"/>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="Vhr-jW-rBU"/>
                     <connections>
                         <outlet property="FavouriteListTableView" destination="0cJ-hw-eBU" id="Wt4-GH-y5Q"/>
                     </connections>
@@ -132,7 +132,7 @@
             </objects>
             <point key="canvasLocation" x="2118" y="883"/>
         </scene>
-        <!--Item 1-->
+        <!--Timeline View Controller-->
         <scene sceneID="HZL-3u-Ifx">
             <objects>
                 <viewController storyboardIdentifier="Timeline" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yWZ-8I-07r" customClass="TimelineViewController" sceneMemberID="viewController">
@@ -171,8 +171,8 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVk-07-NoF">
-                                                    <rect key="frame" x="562" y="8" width="30" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVk-07-NoF">
+                                                    <rect key="frame" x="562" y="8" width="30" height="29"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <state key="normal" title="收藏">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -215,7 +215,7 @@
                             <constraint firstItem="szJ-Fk-oHS" firstAttribute="top" secondItem="0qi-ln-Rlb" secondAttribute="top" id="gGG-lc-Cj4"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="aKI-4s-V8c"/>
+                    <tabBarItem key="tabBarItem" title="" systemItem="recents" id="aKI-4s-V8c"/>
                     <connections>
                         <outlet property="TimelineTableView" destination="szJ-Fk-oHS" id="ghH-Rj-P0w"/>
                     </connections>
