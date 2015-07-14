@@ -36,9 +36,12 @@
             @strongify(self)
             return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
                 [[TwitterClient instance]createFavorite:self.tweet.idStr callback:^(NSDictionary *favoriteResult) {
-                    DLog(@"%@",favoriteResult);
-                    [subscriber sendNext:@(YES)];
-                
+
+                    self.tweet.favorited = !self.tweet.favorited;
+                    [subscriber sendNext:nil];
+                 
+                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                    [subscriber sendError:error];
                 }];
                 return nil;
             }];
