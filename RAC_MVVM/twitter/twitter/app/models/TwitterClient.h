@@ -42,7 +42,7 @@
 
 - (void)createRetweet:(NSString *)tweetId callback:(void (^)(NSDictionary *tweetWithRetweet))callback;
 - (void)deleteRetweet:(NSString *)tweetId;
-- (void)createFavorite:(NSString *)tweetId;
+- (void)createFavorite:(NSString *)tweetId callback:(void (^)(NSDictionary *favoriteResult))callback;
 - (void)deleteFavorite:(NSString *)tweetId;
 - (void)updateStatusWithString:(NSString *)status;
 

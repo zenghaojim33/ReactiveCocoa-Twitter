@@ -179,7 +179,7 @@
     if (_favorited) {
         [[TwitterClient instance] deleteFavorite:self.idStr];
     } else {
-        [[TwitterClient instance] createFavorite:self.idStr];
+        [[TwitterClient instance] createFavorite:self.idStr callback:nil];
     }
     
     // toggle the favorited boolean

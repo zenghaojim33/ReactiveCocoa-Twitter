@@ -29,18 +29,21 @@
 
 -(RACCommand *)favouriteCommand{
     
-    NSLog(@"%@",self.tweet.idStr);
     
     if (!_favouriteCommand){
         @weakify(self)
         _favouriteCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
             @strongify(self)
             return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-                [[TwitterClient instance]createFavorite:self.tweet.idStr];
-                [subscriber sendNext:nil];
+                [[TwitterClient instance]createFavorite:self.tweet.idStr callback:^(NSDictionary *favoriteResult) {
+                    DLog(@"%@",favoriteResult);
+                    [subscriber sendNext:@(YES)];
+                
+                }];
                 return nil;
             }];
         }];
+    
     }
     
     return _favouriteCommand;

@@ -147,11 +147,13 @@ static NSString * const kAccessTokenKey = @"kAccessTokenKey";
            failure:[TwitterClient networkFailureBlock]];
 }
 
-- (void)createFavorite:(NSString *)tweetId
+- (void)createFavorite:(NSString *)tweetId callback:(void (^)(NSDictionary *favoriteResult))callback
 {
+
     [self postPath:@"1.1/favorites/create.json" parameters:[NSMutableDictionary dictionaryWithDictionary:@{@"id": tweetId}]
-          success:[TwitterClient emptySuccessBlock]
-          failure:[TwitterClient networkFailureBlock]];
+           success:^(AFHTTPRequestOperation *operation, id response) {
+               callback((NSDictionary *)response);
+           } failure:[TwitterClient networkFailureBlock]];
 }
 
 - (void)deleteFavorite:(NSString *)tweetId

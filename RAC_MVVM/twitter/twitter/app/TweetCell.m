@@ -41,9 +41,18 @@
     self.content.text = self.viewModel.tweet.text;
     
     self.favouriteButton.rac_command = viewModel.favouriteCommand;
-    [self.favouriteButton.rac_command.executionSignals subscribeNext:^(id x) {
-        NSLog(@"收藏成功");
+
+    
+    [self.favouriteButton.rac_command.executionSignals subscribeNext:^(RACSignal * signal) {
+        
+
+        [signal subscribeNext:^(id x) {
+            NSLog(@"已成功收藏");
+        }];
     }];
+    
+    
+    
     
 }
 
