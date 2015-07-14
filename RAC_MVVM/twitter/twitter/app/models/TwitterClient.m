@@ -177,12 +177,13 @@ static NSString * const kAccessTokenKey = @"kAccessTokenKey";
                       sinceId:(NSString *)sinceId
                         maxId:(NSString *)maxId
                       success:(void (^)(AFHTTPRequestOperation *operation, id response))success
+                       failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
 {
     [self favouriteListWithCount:count
                         sinceId:sinceId
                           maxId:maxId
                         success:success
-                        failure:[TwitterClient networkFailureBlock]];
+                        failure:failure];
 }
 
 

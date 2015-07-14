@@ -19,6 +19,8 @@
         NSLog(@"%ld",self.tweet.count);
 
         
+    }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
     }];
     
     
@@ -27,7 +29,30 @@
 
 -(void)loadMore{
     
+    int indexOfLastLoadedTweet = (int)[_tweet count] - 2;
+    Tweet *lastLoadedTweet = _tweet[indexOfLastLoadedTweet];
     
+    // provide synchonization & remove possibility that many requests are made at the same time
+    
+    [[TwitterClient instance] FavouriteListWithCount:10 sinceId:nil maxId:lastLoadedTweet.idStr
+                                            success:^(AFHTTPRequestOperation *operation, id response) {
+                                                
+                                                if (((NSArray *)response).count == 0){
+                                                    self.noMoreData = @(YES);
+                                                    return ;
+                                                }
+                                                
+                                                NSMutableArray * tweets = [self mutableArrayValueForKey:@"tweet"];
+                                                [tweets addObjectsFromArray:[Tweet tweetsWithArray:response]];
+                                                
+                                                
+                                            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                
+                                            
+                                                
+                                            }];
+    
+
     
     
 }

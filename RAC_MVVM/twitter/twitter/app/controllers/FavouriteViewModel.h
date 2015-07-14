@@ -10,7 +10,7 @@
 
 @interface FavouriteViewModel : NSObject
 @property(nonatomic,strong)NSMutableArray * tweet;
-
+@property(nonatomic,strong,getter=isNoMoreData)NSNumber * noMoreData;
 
 -(void)loadFavourite;
 

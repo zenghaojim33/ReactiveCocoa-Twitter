@@ -23,7 +23,7 @@
 
 -(void)loadMore{
     
-    int indexOfLastLoadedTweet = (int)[_tweet count] - 1;
+    int indexOfLastLoadedTweet = (int)[_tweet count] - 2;
     Tweet *lastLoadedTweet = _tweet[indexOfLastLoadedTweet];
     
     // provide synchonization & remove possibility that many requests are made at the same time
