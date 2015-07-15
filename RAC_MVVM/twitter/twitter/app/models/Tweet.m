@@ -177,7 +177,7 @@
 - (BOOL)toggleFavorite
 {
     if (_favorited) {
-        [[TwitterClient instance] deleteFavorite:self.idStr];
+        [[TwitterClient instance] deleteFavorite:self.idStr callback:nil failure:nil];
     } else {
         [[TwitterClient instance] createFavorite:self.idStr callback:nil failure:nil];
     }

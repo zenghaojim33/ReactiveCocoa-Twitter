@@ -61,9 +61,9 @@
 
     @weakify(self)
     
-    [[RACObserve(self.viewModel, tweet) filter:^BOOL(NSMutableArray *array) {
+    [[RACObserve(self.viewModel, cellViewModels) filter:^BOOL(NSMutableArray *array) {
         @strongify(self)
-        return !!self.viewModel.tweet;
+        return !!self.viewModel.cellViewModels;
     }]
 
      subscribeNext:^(id x) {
@@ -82,8 +82,8 @@
     }];
 
     
-
     
+ 
     
     
 }
@@ -96,9 +96,7 @@
 {
     
     TweetCell * cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
-    //[cell configureCellWithTweet:self.viewModel.tweet[indexPath.row]];
-    TweetCellViewModel * tweetCellViewModel = [[TweetCellViewModel alloc]initWithTweet:self.viewModel.tweet[indexPath.row]];
-    [cell bindViewModel:tweetCellViewModel];
+    [cell bindViewModel:self.viewModel.cellViewModels[indexPath.row]];
     
     return cell;
 }
@@ -107,7 +105,7 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     
-    return self.viewModel.tweet.count;
+    return self.viewModel.cellViewModels.count;
     
     
 }

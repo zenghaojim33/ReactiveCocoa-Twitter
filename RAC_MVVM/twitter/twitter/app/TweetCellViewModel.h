@@ -11,7 +11,7 @@
 @interface TweetCellViewModel : NSObject
 @property(nonatomic,strong)Tweet * tweet;
 @property(nonatomic,strong)RACCommand * favouriteCommand;
-
+@property(nonatomic,strong)RACCommand * unFavoriteCommand;
 -(instancetype)initWithTweet:(Tweet*)tweet;
 
 @end

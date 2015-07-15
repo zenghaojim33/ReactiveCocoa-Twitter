@@ -15,7 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *content;
 @property (weak, nonatomic) IBOutlet UIButton *favouriteButton;
 @property(nonatomic,strong)TweetCellViewModel * viewModel;
-
+@property(nonatomic,strong)UITextField * textField;
 -(void)bindViewModel:(TweetCellViewModel *)viewModel;
 
 

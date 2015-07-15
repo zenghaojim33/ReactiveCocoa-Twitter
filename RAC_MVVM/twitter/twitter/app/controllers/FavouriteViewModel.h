@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface FavouriteViewModel : NSObject
+@property(nonatomic,strong)NSMutableArray * cellViewModels;
 @property(nonatomic,strong)NSMutableArray * tweet;
 @property(nonatomic,strong,getter=isNoMoreData)NSNumber * noMoreData;
 

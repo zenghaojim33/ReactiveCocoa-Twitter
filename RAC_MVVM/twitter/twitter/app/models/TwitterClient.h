@@ -44,7 +44,7 @@
 - (void)createRetweet:(NSString *)tweetId callback:(void (^)(NSDictionary *tweetWithRetweet))callback;
 - (void)deleteRetweet:(NSString *)tweetId;
 - (void)createFavorite:(NSString *)tweetId callback:(void (^)(NSDictionary *favoriteResult))callback failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
-- (void)deleteFavorite:(NSString *)tweetId;
+- (void)deleteFavorite:(NSString *)tweetId callback:(void (^)(NSDictionary *favoriteResult))callback failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 - (void)updateStatusWithString:(NSString *)status;
 
 @end

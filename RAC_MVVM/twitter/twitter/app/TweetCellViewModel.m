@@ -17,7 +17,7 @@
     if (self = [super init]){
         
         self.tweet = tweet;
-        NSLog(@"%@",tweet.username);
+
         return self;
         
     }
@@ -52,6 +52,31 @@
     return _favouriteCommand;
 }
 
+
+-(RACCommand *)unFavoriteCommand{
+    
+    if (!_favouriteCommand){
+        @weakify(self)
+        _favouriteCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
+            @strongify(self)
+            return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+                [[TwitterClient instance]deleteFavorite:self.tweet.idStr callback:^(NSDictionary *favoriteResult) {
+                    
+                    self.tweet.favorited = !self.tweet.favorited;
+                    [subscriber sendNext:nil];
+                    
+                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                    [subscriber sendError:error];
+                }];
+                return nil;
+                
+            }];
+        }];
+        
+    }
+    
+    return _favouriteCommand;
+}
 
 
 @end

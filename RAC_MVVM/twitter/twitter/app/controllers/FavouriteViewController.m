@@ -67,9 +67,9 @@
     
     @weakify(self)
     
-    [[RACObserve(self.viewModel, tweet) filter:^BOOL(NSMutableArray *array) {
+    [[RACObserve(self.viewModel, cellViewModels) filter:^BOOL(NSMutableArray *array) {
         @strongify(self)
-        return !!self.viewModel.tweet;
+        return !!self.viewModel.cellViewModels;
     }]
      
      subscribeNext:^(id x) {
@@ -90,9 +90,8 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     FavouriteCell * cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentifier];
-    TweetCellViewModel * tweetCellViewModel = [[TweetCellViewModel alloc]initWithTweet:self.viewModel.tweet[indexPath.row]];
 
-    [cell bindViewModel:tweetCellViewModel];
+    [cell bindViewModel:self.viewModel.cellViewModels[indexPath.row]];
     
     return cell;
     
@@ -101,7 +100,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return self.viewModel.tweet.count;
+    return self.viewModel.cellViewModels.count;
     
 }
 
@@ -112,6 +111,28 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return YES;
+    
+}
+
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete){
+        TweetCellViewModel * viewModel = ((FavouriteCell *)[tableView cellForRowAtIndexPath:indexPath]).viewModel;
+        
+        [viewModel.unFavoriteCommand execute:nil];
+        [self.viewModel.cellViewModels removeObjectAtIndex:indexPath.row];
+        [self.FavouriteListTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+
+    }
+    
+    
+}
+
 
 /*
 #pragma mark - Navigation

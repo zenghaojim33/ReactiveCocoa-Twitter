@@ -15,7 +15,14 @@
 -(void)loadTweet{
     
     [[TwitterClient instance]homeTimelineWithCount:10 sinceId:nil maxId:nil success:^(AFHTTPRequestOperation *operation, id response) {
-        self.tweet = [Tweet tweetsWithArray:response];
+        NSArray * tweets = [Tweet tweetsWithArray:response];
+        self.cellViewModels = [NSMutableArray array];
+        NSMutableArray * cellViewModels = [self mutableArrayValueForKey:@"cellViewModels"];
+        for (NSUInteger i = 0 ; i < tweets.count; i++){
+            
+            TweetCellViewModel * viewModel = [[TweetCellViewModel alloc]initWithTweet:tweets[i]];
+            [cellViewModels addObject:viewModel];
+        }
     }];
     
 }
@@ -29,16 +36,20 @@
     // provide synchonization & remove possibility that many requests are made at the same time
     
     [[TwitterClient instance] homeTimelineWithCount:10 sinceId:nil maxId:lastLoadedTweet.idStr
-                                            success:^(AFHTTPRequestOperation *operation, id response) {
+                                            success:^(AFHTTPRequestOperation *operation, NSArray * response) {
                                                 
-                                                if (((NSArray *)response).count == 0){
+                                                if (response.count == 0){
                                                     self.noMoreData = @(YES);
                                                     return ;
                                                 }
+                                                NSArray * tweets = [Tweet tweetsWithArray:response];
+                                                NSMutableArray * cellViewModels = [self mutableArrayValueForKey:@"cellViewModels"];
+                                                for (NSUInteger i = 0 ; i < response.count; i++){
+                                                    
+                                                    TweetCellViewModel * viewModel = [[TweetCellViewModel alloc]initWithTweet:tweets[i]];
+                                                    [cellViewModels addObject:viewModel];
                                                 
-                                                NSMutableArray * tweets = [self mutableArrayValueForKey:@"tweet"];
-                                                [tweets addObjectsFromArray:[Tweet tweetsWithArray:response]];
-                                                
+                                                }
                                                 
                                             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                                 
@@ -49,7 +60,13 @@
     
 }
 
-
+-(TweetCellViewModel *)viewModelForCellAtIndexPath:(NSIndexPath *)indexPath{
+    
+    TweetCellViewModel * viewModel = [[TweetCellViewModel alloc]initWithTweet:self.tweet[indexPath.row]];
+    
+    return viewModel;
+    
+}
 
 
 
